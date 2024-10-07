@@ -1,6 +1,5 @@
 const container = document.getElementById("container");
 const buttons = document.querySelectorAll(".gravity-button");
-const collisionBox = document.getElementById("collision-box");
 
 // Set initial positions randomly within the viewport
 buttons.forEach((button) => {
@@ -34,26 +33,6 @@ function applyGravityAndCollisions() {
 
     button.style.left = `${newLeft}px`;
     button.style.top = `${newTop}px`;
-
-    // Collision detection with the collision box
-    const collisionRect = collisionBox.getBoundingClientRect();
-    const distanceX = buttonX - (collisionRect.left + collisionRect.width / 2);
-    const distanceY = buttonY - (collisionRect.top + collisionRect.height / 5);
-    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-    const minDistance = (buttonRect.width + collisionRect.width) / 2;
-
-    if (distance < minDistance) {
-      // Push button away from the collision box
-      const angle = Math.atan2(distanceY, distanceX);
-      const overlap = minDistance - distance;
-
-      button.style.left = `${
-        parseFloat(button.style.left) + Math.cos(angle) * overlap
-      }px`;
-      button.style.top = `${
-        parseFloat(button.style.top) + Math.sin(angle) * overlap
-      }px`;
-    }
 
     // Collision detection with other buttons
     buttons.forEach((otherButton, otherIndex) => {

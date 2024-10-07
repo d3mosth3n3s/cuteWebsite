@@ -12,6 +12,7 @@ body {
     margin: 0;
     overflow: hidden;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -55,13 +56,30 @@ p {
     /* Center horizontally */
     transform: translate(-50%, -70%);
     /* Center adjustment */
-    z-index: 0;
     /* Keep it behind other elements */
     border: 60px solid rgba(32, 0, 0, 0);
     /* Border for debugging if needed */
 }
 
+li {
+display: inline;
+font-family: SpaceMono;
 
+}
+
+li a {
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+display: inline-flex;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+background-color: rgb(213, 146, 157);
+}
+  
 .headerImg {
     display: flex;
     margin: 0 auto;
@@ -90,9 +108,9 @@ p {
     /* Center align content horizontally */
     align-items: center;
     /* Center align content vertically */
-    width: 220px;
+    width: 200px;
     /* Set button width larger than image */
-    height: 220px;
+    height: 200px;
     /* Set button height larger than image */
 }
 
@@ -112,7 +130,7 @@ p {
 }
 
 img {
-    width: 190px;
+    width: 80%;
     /* Set the desired image width */
     height: auto;
     /* Maintain aspect ratio */
@@ -135,3 +153,10 @@ img {
             rgba(255, 255, 255, 0) 69%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e07bb4", endColorstr="#ffffff", GradientType=1);
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: pink;
+    border-radius: 10px;
+  }
