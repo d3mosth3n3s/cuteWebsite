@@ -5,7 +5,7 @@ const buttons = document.querySelectorAll(".gravity-button");
 buttons.forEach((button) => {
   button.style.left = `${Math.random() * (window.innerWidth - 100)}px`;
   button.style.top = `${Math.random() * (window.innerHeight - 100)}px`;
-
+  button.rotation = Math.random() * 360; // Initialize random rotation
   // Add click event listener to each button
   button.addEventListener("click", () => {
     console.log(`${button.innerText} clicked!`);
@@ -27,7 +27,7 @@ function applyGravityAndCollisions() {
     const deltaY = centerY - buttonY;
 
     // Apply a force towards the center
-    const force = 0.01;
+    const force = 0.015;
     const newLeft = parseFloat(button.style.left) + deltaX * force;
     const newTop = parseFloat(button.style.top) + deltaY * force;
 
@@ -53,7 +53,7 @@ function applyGravityAndCollisions() {
 
         if (distance < minDistanceBetweenButtons) {
           // Push buttons apart
-          const angle = Math.atan2(dy, dx);
+          const angle = Math.atan2(dy, dx) + 0.1;
           const overlap = minDistanceBetweenButtons - distance;
           const moveX = Math.cos(angle) * overlap * 0.5;
           const moveY = Math.sin(angle) * overlap * 0.5;

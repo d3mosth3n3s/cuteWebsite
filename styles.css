@@ -8,19 +8,25 @@
     src: url(SpaceMono-Regular.ttf);
 }
 
+html,
 body {
+    height: 100%;
     margin: 0;
-    overflow: hidden;
+}
+
+body {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* Stack elements vertically */
     justify-content: top;
-    padding-top: 15vh;
-    height: 100vh;
+    /* Center vertically */
+    align-items: center;
+    /* Center horizontally */
     background: #ffffff;
     position: relative;
     background-image: url(bgimagefotoday.png);
     background-size: 500px;
+    padding-top: 100px;
 }
 
 p {
@@ -32,12 +38,11 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     padding: 20px;
-    text-align: center;
+    text-align: left;
     width: 700px;
     height: auto;
-
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     border: solid 10px pink;
@@ -78,7 +83,12 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: rgb(213, 146, 157);
+    background-color: rgb(255, 232, 237);
+    color: rgb(110, 175, 125);
+    border-radius: 10px;
+    transform: scale(1.1);
+    /* Scale up the button by 10% */
+    transition: transform 0.7s, background 1s, color .8s;
 }
 
 .headerImg {
@@ -115,7 +125,45 @@ li a:hover {
     /* Set button height larger than image */
 }
 
+.draggable-element {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    cursor: move;
+    border-radius: 8px;
+}
 
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#centerBox {
+    background: rgb(255, 204, 233);
+    background: -moz-radial-gradient(circle,
+            rgb(255, 255, 255) 39%,
+            rgba(255, 255, 255, 0) 69%);
+    background: -webkit-radial-gradient(circle,
+            rgb(255, 255, 255) 39%,
+            rgba(255, 255, 255, 0) 69%);
+    background: radial-gradient(circle,
+            rgba(226, 255, 234, 0.746) 39%,
+            rgba(255, 255, 255, 0) 69%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e07bb4", endColorstr="#ffffff", GradientType=1);
+    height: 700px;
+    /* Example size, adjust as needed */
+    width: 800px;
+    /* Example size, adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 250px;
+    border-radius: 30px;
+}
 
 .buttonText {
     position: absolute;
@@ -161,4 +209,43 @@ ul {
     padding: 0;
     background-color: pink;
     border-radius: 10px;
+}
+
+/* Left column */
+.leftcolumn {
+    float: left;
+
+}
+
+/* Right column */
+
+
+/* Fake image */
+.fakeimg {
+    background-color: #aaa;
+    width: 450px;
+    padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+h2 {
+    font-family: AntiPasto;
+    font-size: 35px;
+}
+
+h5 {
+    font-family: SpaceMono;
 }
